@@ -1,4 +1,5 @@
 import  { useEffect, useState } from "react";
+import { getUsers } from "../utils/localStorage";
 import UserCard from "../components/UserCard";
 
 const Home = () => {

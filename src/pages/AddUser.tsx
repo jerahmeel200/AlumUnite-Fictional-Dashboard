@@ -1,6 +1,6 @@
  
-import { getUsers, saveUsers } from "../utils/localStorage";
 import UserForm from "../components/UserForm";
+import { getUsers, saveUsers } from  "../utils/localStorage";
 
 const AddUser = () => {
   const handleSave = (user: any) => {

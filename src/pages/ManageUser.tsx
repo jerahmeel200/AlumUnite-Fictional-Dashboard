@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { User, mockData } from "../data/mockUsers";
+import { getUsers, saveUsers } from "../utils/localStorage";
 import UserCard from "../components/UserCard";
 
 const ManageUsers = () => {
