@@ -10,7 +10,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 pt-16">
       {users.map((user: any) => (
         <UserCard key={user.id} user={user} />
       ))}

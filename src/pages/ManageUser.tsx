@@ -2,10 +2,10 @@ import  { useEffect, useState } from "react";
 import { User, mockData } from "../data/mockUsers";
 import { getUsers, saveUsers } from "../utils/localStorage";
 import UserCard from "../components/UserCard";
+import { toast } from "react-toastify";
 
 const ManageUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
-  const [editingUserId, setEditingUserId] = useState<number | null>(null);
 
   useEffect(() => {
     const storedUsers = getUsers();
@@ -21,23 +21,12 @@ const ManageUsers = () => {
     const updatedUsers = users.filter((user) => user.id !== id);
     saveUsers(updatedUsers);
     setUsers(updatedUsers);
-    // Optionally, add toast notification here
+    toast.success("User Deleted Sucessfully")
   };
 
-  const handleEditUser = (id: number) => {
-    setEditingUserId(id);
-    // Optionally, trigger modal or form display logic here for editing
-    console.log("Edit user functionality initiated for user ID:", id);
-  };
+ 
 
-  const handleSaveEditUser = (updatedUser: User) => {
-    const updatedUsers = users.map((user) =>
-      user.id === updatedUser.id ? updatedUser : user
-    );
-    saveUsers(updatedUsers);
-    setUsers(updatedUsers);
-    setEditingUserId(null); // Close the edit form/modal
-  };
+ 
 
   return (
     <div>
@@ -47,7 +36,7 @@ const ManageUsers = () => {
           <UserCard
             key={user.id}
             user={user}
-            onEdit={() => handleEditUser(user.id)}
+          
             onDelete={() => handleDeleteUser(user.id)}
             showActions={true}
           />

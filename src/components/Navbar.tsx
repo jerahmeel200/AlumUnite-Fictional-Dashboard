@@ -17,9 +17,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-primary text-white shadow-md">
+    <nav className="bg-primary text-white shadow-md fixed top-0 left-0 w-full z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">AlumUnite Dashboard</h1>
+        <Link to="/">
+          <h1 className="text-2xl font-bold">AlumUnite Dashboard</h1>
+        </Link>
 
         {/* Hamburger Icon for Small Screens */}
         <div className="md:hidden">
@@ -32,7 +34,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links for Medium and Larger Screens */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex space-x-4 font-bold">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -55,8 +57,8 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)} // Close menu on link click
-              className={`block hover:text-gray-300 ${
-                location.pathname === link.path ? "underline" : ""
+              className={`block hover:text-gray-300 font-bold ${
+                location.pathname === link.path ? "text-red-700" : ""
               }`}
             >
               {link.name}
