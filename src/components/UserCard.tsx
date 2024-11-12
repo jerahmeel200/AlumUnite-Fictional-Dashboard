@@ -1,6 +1,6 @@
  
 import { FaTrash } from "react-icons/fa";
-import avatar from "../assets/avatar.png"
+import avatar from "/assets/avatar.png"
 import {User} from "../type/index"
  
 

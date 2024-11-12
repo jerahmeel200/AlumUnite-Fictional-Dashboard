@@ -1,5 +1,3 @@
-
-
 [
   {
     "id": 1,
@@ -7,7 +5,7 @@
     "email": "john.doe@example.com",
     "role": "Admin",
     "status": "Active",
-    "profilePhoto": "../assets/avatar.png"
+    "profilePhoto": "/assets/avatar.png"
   },
   {
     "id": 2,
@@ -15,7 +13,7 @@
     "email": "jane.smith@example.com",
     "role": "User",
     "status": "Inactive",
-    "profilePhoto": "../assets/avatar.png"
+    "profilePhoto": "/assets/avatar.png"
   },
   {
     "id": 3,
@@ -23,6 +21,6 @@
     "email": "samuel.lee@example.com",
     "role": "Guest",
     "status": "Active",
-    "profilePhoto": "../assets/avatar.png"
+    "profilePhoto": "/assets/avatar.png"
   }
 ]
