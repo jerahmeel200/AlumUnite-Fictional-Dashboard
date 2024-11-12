@@ -11,7 +11,7 @@ const AddUser = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 mt-20">
       <h2 className="text-xl font-bold mb-4">Add a New User</h2>
       <UserForm onSave={handleSave} />
     </div>

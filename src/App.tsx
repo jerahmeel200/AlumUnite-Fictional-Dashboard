@@ -7,10 +7,11 @@ import AddUser from './pages/AddUser'
 import ManageUsers from './pages/ManageUser'
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useLoadMockData from './hooks/useLoadMockData'
 
 
 function App() {
- 
+  useLoadMockData()
 
   return (
     <>

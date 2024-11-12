@@ -1,36 +1,25 @@
-export interface User {
-    id: number;
-    name: string;
-    email: string;
-    role: string;
-    status: string;
-    profilePhoto: string;
-  }
+import { UserRole, User } from "../type/index";
+
+// Import mock user data from JSON file
+import dummy from "./mockUsers.json";
+
+/**
+ * Mapping of role strings to UserRole enum values.
+ * This ensures consistency in role naming conventions.
+ */
+const roleMap: { [key: string]: UserRole } = {
+  admin: "Admin",
+  guest: "Guest",
+  user: "User",
+};
+console.log(dummy)
+// Function to transform mock user data to conform to User type.
+export const mockData = (): User[] => {
+  return dummy.map((user) => ({
+    ...user,
+    role: roleMap[user.role.toLowerCase()],
+  }));
+   
+};
   
-  export const mockData: User[] = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john.doe@example.com",
-      role: "Admin",
-      status: "Active",
-      profilePhoto: "/assets/default-profile.png"
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane.smith@example.com",
-      role: "User",
-      status: "Inactive",
-      profilePhoto: "/assets/react.svg"
-    },
-    {
-      id: 3,
-      name: "Samuel Lee",
-      email: "samuel.lee@example.com",
-      role: "Guest",
-      status: "Active",
-      profilePhoto: "/assets/react.svg"
-    }
-  ];
-  
+
