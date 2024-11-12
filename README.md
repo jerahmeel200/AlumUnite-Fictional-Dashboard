@@ -1,4 +1,4 @@
-# AlumUnite
+ # AlumUnite
 
 AlumUnite is a simple, responsive React and TypeScript web application for managing a list of users, ideal for alumni networks, community groups, or small organizations. It allows administrators to add and delete users and view user profiles with real-time feedback and beautiful, professional styling.
 
@@ -77,35 +77,24 @@ The mockData.ts file is structured as follows:
  
  ```js
  
-
-
-[
+ export const mockData: User[] = [
   {
-    "id": 1,
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "role": "Admin",
-    "status": "Active",
-    "profilePhoto": "../assets/avatar.png"
+    id: 1,
+    name: "John Doe",
+    email: "john.doe@example.com",
+    role: "Admin",
+    status: "Active",
+    profilePhoto: "/assets/default-profile.png"
   },
   {
-    "id": 2,
-    "name": "Jane Smith",
-    "email": "jane.smith@example.com",
-    "role": "User",
-    "status": "Inactive",
-    "profilePhoto": "../assets/avatar.png"
-  },
-  {
-    "id": 3,
-    "name": "Samuel Lee",
-    "email": "samuel.lee@example.com",
-    "role": "Guest",
-    "status": "Active",
-    "profilePhoto": "../assets/avatar.png"
+    id: 2,
+    name: "Jane Smith",
+    email: "jane.smith@example.com",
+    role: "User",
+    status: "Inactive",
+    profilePhoto: "/assets/default-profile.png"
   }
-]
-
+];
 
 
 ```
@@ -116,19 +105,16 @@ The mockData.ts file is structured as follows:
 alumunite/
 ├── public/
 │   ├── assets/
-│   │   └── default-profile.png
+│   │   └── avartar.png
 ├── src/
 │   ├── components/
 │   │   └── UserCard.tsx
 │   ├── pages/
 │   │   ├── Home.tsx
 │   │   └── ManageUsers.tsx
-        └── AddUser.tsx
 │   ├── utils/
 │   │   └── localStorage.ts
-│   ├── data
-    └── mockUser.json
-    └── mockUser.ts
+│   ├── mockData.ts
 │   ├── App.tsx
 │   └── index.tsx
 └── README.md
@@ -149,4 +135,53 @@ Contributions are welcome! Please follow these steps:
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
- 
+
+## Debugging Report
+This section provides troubleshooting steps and common issues you may encounter while running or developing the app.
+
+## Common Issues
+1. App Not Starting
+
+- Symptom: Running npm start shows errors, or the app fails to load in the browser.
+Solution:
+- Ensure all dependencies are installed. Run npm install to reinstall them if needed.
+- Make sure you’re using a compatible Node.js version (preferably Node.js 14 or newer).
+- Check if there are any errors in the terminal and resolve them.
+2. localStorage Data Not Showing
+
+- Symptom: User data from localStorage does not appear on the Home or Manage Users page.
+Solution:
+- Open your browser’s Developer Tools (usually by pressing F12 or Ctrl+Shift+I) and go to the Application tab to inspect localStorage.
+- Ensure that data is saved in localStorage under the correct key. By default, user data should be saved under the key users (or check the actual key if modified in utils/localStorage.ts).
+- If localStorage is empty, the app should populate mock data. Clear localStorage data to test if mock data appears.
+2. Form Validation Issues
+
+- Symptom: Submitting the “Add User” form does not display the required validation warnings or errors.
+Solution:
+- Confirm that validation is applied to fields in the AddUser component.
+- Check the console for any errors related to validation and fix them as needed.
+3. Notifications Not Displaying
+
+- Symptom: Toast notifications are not appearing for actions like adding a user.
+Solution:
+- Ensure that React Toastify is installed correctly (npm install react-toastify).
+- Verify that ToastContainer is added in the App.tsx or AddUser component.
+- Inspect the console to confirm that notifications are correctly triggered in the onSubmit function in AddUser.
+4. Mock Data Not Loading When localStorage is Empty
+
+- Symptom: Even after clearing localStorage, no user data is shown on the Home page.
+Solution:
+- Check if the mock data is properly imported and used as a fallback in the Home component.
+- Verify that the getUsers() function in localStorage.ts has a fallback mechanism to load mock data if localStorage is empty.
+- Confirm that mockData is defined in mockData.ts and correctly imported into Home and ManageUsers.
+5. Edit/Delete Buttons Not Working
+
+- Symptom: Clicking  delete buttons on the Manage Users page does not update or remove users as expected.
+Solution:
+- Verify the event handlers for  delete actions in the ManageUsers component.
+- Ensure that these handlers properly update localStorage and refresh the component state.
+- Use console.log statements to trace if the correct user ID is passed to each function.
+## Tips for Further Debugging
+- Check Console Logs: Console errors or warnings often provide useful information. Use console.log statements to inspect variables or confirm code execution at specific points.
+- Inspect Network Requests: Open the Network tab in Developer Tools to monitor any network calls, especially if data is fetched or modified remotely.
+- Review State and Props: Ensure that the correct data is passed between components. Missing or misconfigured props can cause unexpected UI issues.
