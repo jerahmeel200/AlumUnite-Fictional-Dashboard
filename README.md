@@ -72,29 +72,38 @@ Open http://localhost:3000 in your browser to view it.
 ## Mock Data
  If no user data exists in localStorage, a default set of users will be displayed using the mock data.
 
-The mockData.ts file is structured as follows:
+The mockUsers.json file is structured as follows:
 
  
  ```js
  
- export const mockData: User[] = [
+[
   {
-    id: 1,
-    name: "John Doe",
-    email: "john.doe@example.com",
-    role: "Admin",
-    status: "Active",
-    profilePhoto: "/assets/default-profile.png"
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "role": "Admin",
+    "status": "Active",
+    "profilePhoto": "/assets/avatar.png"
   },
   {
-    id: 2,
-    name: "Jane Smith",
-    email: "jane.smith@example.com",
-    role: "User",
-    status: "Inactive",
-    profilePhoto: "/assets/default-profile.png"
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "role": "User",
+    "status": "Inactive",
+    "profilePhoto": "/assets/avatar.png"
+  },
+  {
+    "id": 3,
+    "name": "Samuel Lee",
+    "email": "samuel.lee@example.com",
+    "role": "Guest",
+    "status": "Active",
+    "profilePhoto": "/assets/avatar.png"
   }
-];
+]
+
 
 
 ```
@@ -114,7 +123,11 @@ alumunite/
 │   │   └── ManageUsers.tsx
 │   ├── utils/
 │   │   └── localStorage.ts
-│   ├── mockData.ts
+│   ├── data
+    │  └── mockUsers.json
+    │  └── mockUsers.ts
+    ├── hooks
+       └── useLoadMockData.ts
 │   ├── App.tsx
 │   └── index.tsx
 └── README.md
